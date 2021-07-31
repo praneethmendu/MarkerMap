@@ -1,0 +1,23 @@
+{
+  "name": "simple-map-marker",
+  "version": "1.0.0",
+  "description": "This is a sample server to store markers on the map",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "redis": "^3.1.2",
+    "redis-modules-sdk": "^0.8.1",
+    "swagger-tools": "0.10.1",
+    "uuid": "^8.3.2"
+  }
+}

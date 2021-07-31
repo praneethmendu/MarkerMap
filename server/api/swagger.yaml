@@ -1,0 +1,172 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a sample server to store markers on the map"
+  version: "1.0.0"
+  title: "Simple Map Marker"
+  contact:
+    email: "praneethmendu@gmail.com"
+host: "localhost:4343"
+basePath: "/api"
+tags:
+- name: "place"
+  description: "everything about your places"
+schemes:
+- "https"
+- "http"
+paths:
+  /places:
+    get:
+      tags:
+      - "place"
+      summary: "get all places"
+      description: "Returns all places"
+      operationId: "getAllPlaces"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Places"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "place not found"
+      x-swagger-router-controller: "Place"
+  /place:
+    post:
+      tags:
+      - "place"
+      summary: "Add a new place"
+      description: ""
+      operationId: "addPlace"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "place object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Place"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+        "405":
+          description: "Invalid input"
+      x-swagger-router-controller: "Place"
+    put:
+      tags:
+      - "place"
+      summary: "Update an existing place"
+      description: ""
+      operationId: "updatePlace"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "place object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Place"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "place not found"
+        "405":
+          description: "Validation exception"
+      x-swagger-router-controller: "Place"
+  /place/{uuid}:
+    get:
+      tags:
+      - "place"
+      summary: "Find place by ID"
+      description: "Returns a single place"
+      operationId: "getPlaceById"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "uuid"
+        in: "path"
+        description: "ID of place to return"
+        required: true
+        type: "string"
+        format: "uuid"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Place"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "place not found"
+      x-swagger-router-controller: "Place"
+    delete:
+      tags:
+      - "place"
+      summary: "Deletes a place"
+      description: ""
+      operationId: "deletePlace"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "uuid"
+        in: "path"
+        description: "place id to delete"
+        required: true
+        type: "string"
+        format: "uuid"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Place not found"
+      x-swagger-router-controller: "Place"
+definitions:
+  Place:
+    type: "object"
+    properties:
+      UUID:
+        type: "string"
+        format: "uuid"
+      latitude:
+        type: "number"
+        format: "double"
+      longitude:
+        type: "number"
+        format: "double"
+      name:
+        type: "string"
+      image:
+        type: "string"
+        format: "uri"
+    example:
+      image: "http://example.com/aeiou"
+      latitude: 0.80082819046101150206595775671303272247314453125
+      name: "name"
+      UUID: "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+      longitude: 6.02745618307040320615897144307382404804229736328125
+  Places:
+    type: "array"
+    items:
+      $ref: "#/definitions/Place"
