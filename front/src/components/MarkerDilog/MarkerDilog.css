@@ -1,0 +1,17 @@
+.dialog-container {
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+
+  box-sizing: border-box;
+  padding: 10%;
+}
+
+.spread-out {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.MuiButtonBase-root {
+  margin: 10%;
+}

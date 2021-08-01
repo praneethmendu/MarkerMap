@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0b47af; /* fallback for old browsers */
+  background-image: linear-gradient(
+    to top,
+    #021b79,
+    #083194,
+    #0b47af,
+    #0b5eca,
+    #0575e6
+  );
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.full-size {
+  height: 100%;
+  width: 100%;
+}
+
+form > .MuiFormControl-root {
+  margin: 2%;
+}
+
+form > button {
+  margin: 2%;
+}
+
+.MuiPaper-root .MuiButtonBase-root {
+  margin-left: 12%;
+}
