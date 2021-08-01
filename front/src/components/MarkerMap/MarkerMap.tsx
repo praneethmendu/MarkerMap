@@ -9,6 +9,17 @@ const MarkerMap: React.FC = () => {
   const placeApi = new PlaceApi();
   const [places, setPlaces] = useState<Places>([]);
 
+  const refreshPlaces = (): void => {
+    placeApi.getAllPlaces().then((allPlaces) => {
+      setPlaces(allPlaces);
+    });
+  };
+
+  useEffect(() => {
+    refreshPlaces();
+    // eslint-disable-next-line
+  }, []);
+
   useMapEvents({
     click(clickEvent) {
       placeApi
@@ -25,16 +36,6 @@ const MarkerMap: React.FC = () => {
         });
     },
   });
-
-  useEffect(() => {
-    refreshPlaces();
-  },[]);
-
-  function refreshPlaces(): void {
-    placeApi.getAllPlaces().then((allPlaces) => {
-      setPlaces(allPlaces);
-    });
-  }
 
   return (
     <>

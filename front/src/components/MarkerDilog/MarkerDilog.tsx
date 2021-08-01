@@ -14,8 +14,8 @@ interface Props {
 }
 
 const MarkerDilog: React.FC<Props> = (props) => {
-  let placeApi = new PlaceApi();
-  let { place, setShowDilog, refreshPlaces } = props;
+  const placeApi = new PlaceApi();
+  const { place, setShowDilog, refreshPlaces } = props;
 
   const formik = useFormik({
     initialValues: place,

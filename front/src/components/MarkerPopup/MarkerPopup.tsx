@@ -16,7 +16,7 @@ interface Props {
 }
 
 function MarkerPopup(props: Props): React.ReactNode | any {
-  let { refreshPlaces, place } = props;
+  const { refreshPlaces, place } = props;
   const [showDilog, setShowDilog] = useState<boolean>(false);
   const placeApi = new PlaceApi();
 
