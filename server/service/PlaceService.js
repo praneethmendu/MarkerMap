@@ -1,10 +1,8 @@
 'use strict';
 
-//import { ReJSON } from 'redis-modules-sdk';
 const { ReJSON } = require('redis-modules-sdk')
 const { v4: uuid } = require('uuid');
 const ResponsePayload = require('../utils/reponsePayload').default
-//import { v4 as uuid } from 'uuid';
 
 const client = new ReJSON({
   host: 'localhost',
